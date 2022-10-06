@@ -1,0 +1,22 @@
+{
+  "name": "transaction-api",
+  "version": "1.0.0",
+  "description": "A transaction API to keep track of expenditures",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jelert/transaction-api.git"
+  },
+  "author": "Joe Elert",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jelert/transaction-api/issues"
+  },
+  "homepage": "https://github.com/jelert/transaction-api#readme",
+  "dependencies": {
+    "request": "^2.88.2"
+  }
+}
