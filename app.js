@@ -9,7 +9,7 @@ let transactions = []
 server.get('/', (req, res) => {
   res.status(200).send(
     {
-        body: 'Request is working'
+        body: 'Server is listening on routes: /spend, /points, and /transactions'
     }
     )
 });

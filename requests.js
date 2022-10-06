@@ -33,11 +33,16 @@ let prom = new Promise(function(resolve, reject){
         await request.post('http://localhost:3000/transaction', { json: val }, (err, res, body) => {
             if (err) { return console.log("Server Error. Will be fixed soon!"); }
             console.log(body);
-            resolve()
         });  
     }
-    )
-}).then(request.post('http://localhost:3000/spend', { json: {points: 5000} }, (err, res, body) => {
+    )    
+    resolve();
+
+}).then(request.get('http://localhost:3000/points', { json: true }, (err, res, body) => {
+    if (err) { return console.log("Server Error. Will be fixed soon!"); }
+    console.log(body);
+    console.log(res.statusCode);
+})).then(request.post('http://localhost:3000/spend', { json: {points: 5000} }, (err, res, body) => {
     if (err) { return console.log("Server Error. Will be fixed soon!"); }
     console.log(body);
     console.log(res.statusCode);

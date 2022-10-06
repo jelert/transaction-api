@@ -21,8 +21,8 @@ module.exports = function(server, transactions){
         let needed = req.body["points"]
 
         transactions.sort((a, b) => {
-            d1 = new Date(a["timestamp"])
-            d2 = new Date(b["timestamp"])
+            const d1 = new Date(a["timestamp"])
+            const d2 = new Date(b["timestamp"])
             if(d1 > d2){
                 return 1
             }
@@ -34,7 +34,7 @@ module.exports = function(server, transactions){
             }
 
         })
-        console.log(transactions)
+
         let paid = {}
         while (needed > 0) {
             if(transactions === []){
@@ -53,7 +53,6 @@ module.exports = function(server, transactions){
             else{
                 transactions[0]["points"] = curr_points - needed
                 pay_up(paid, curr_name, needed)
-                needed = 0
                 break
             }
             pay_up(paid, curr_name, curr_points)
