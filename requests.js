@@ -46,4 +46,8 @@ let prom = new Promise(function(resolve, reject){
     if (err) { return console.log("Server Error. Will be fixed soon!"); }
     console.log(body);
     console.log(res.statusCode);
+})).then(request.get('http://localhost:3000/points', { json: true }, (err, res, body) => {
+    if (err) { return console.log("Server Error. Will be fixed soon!"); }
+    console.log(body);
+    console.log(res.statusCode);
 }))

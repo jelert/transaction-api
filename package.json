@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/jelert/transaction-api#readme",
   "dependencies": {
-    "request": "^2.88.2"
+    "express": "^4.18.1",
+    "prompt-sync": "^4.2.0",
+    "request": "^2.88.2",
+    "requests": "^0.3.0"
   }
 }

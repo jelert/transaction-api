@@ -4,10 +4,11 @@ Joe Elert's transaction API for Fetch Rewards Backend Software Engineering
 
 * Node.js version v18.7.0
 
-* Dependencies:
+* Dependencies (install all packages with `make`):
     - Node.js
     - Express (to install with npm run `npm install express`)
     - Request (`npm install request`)
+    - Prompt-sync (`npm install prompt-sync`)
 
 * To Run:
     - Match Node version 
@@ -36,4 +37,9 @@ Joe Elert's transaction API for Fetch Rewards Backend Software Engineering
     - Returns the current user points
 
 * Testing:
-Given test case is modeled in reqests.js. To run: `node requests.js`
+Given test case is modeled in reqests.js. 
+(Optional): In a new terminal window with the server still running, run `node userRequests.js` for a front-end to test the functionality of the service 
+
+To run: 
+- Start service by running `node app.js`
+- Open a new terminal window and run `node requests.js` to run full test sequence at once. View points in terminal

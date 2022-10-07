@@ -1,5 +1,8 @@
+const HttpStatusCode = require('../HttpStatusCode')
+
 module.exports = function(server, transactions){
 
+    // Retrieves all summed point values for each payer
     server.get('/points', function(req, res){
         let obj = {}
         transactions.forEach(element => {
@@ -9,7 +12,7 @@ module.exports = function(server, transactions){
             obj[element["payer"]] += element["points"]
         });
 
-        res.status(200).json(obj);
+        res.status(HttpStatusCode.OK).json(obj);
     });
 
 }

@@ -1,3 +1,5 @@
+const HttpStatusCode = require('../HttpStatusCode')
+
 module.exports = function(server, transactions){
 
     let pay_up = (paid, name, amount) => {
@@ -8,18 +10,20 @@ module.exports = function(server, transactions){
     }
 
     server.post('/spend', function(req, res){
+        // verify spend is possible
         if(transactions === []){
-            res.status(405).json({
+            res.status(HttpStatusCode.BAD_REQUEST).json({
                 Error: "Cannot spend. No transactions"
             })
         } else if ( !req.body || !Object.keys(req.body).includes("points")){
-            res.status(405).json({
+            res.status(HttpStatusCode.BAD_REQUEST).json({
                 Error: "Spend amount uncertain"
             })            
         }
 
         let needed = req.body["points"]
 
+        // sort transactions from oldest to newest
         transactions.sort((a, b) => {
             const d1 = new Date(a["timestamp"])
             const d2 = new Date(b["timestamp"])
@@ -35,10 +39,11 @@ module.exports = function(server, transactions){
 
         })
 
+        // spend points
         let paid = {}
         while (needed > 0) {
             if(transactions === []){
-                res.status(405).json({Error: "Not enough money left"});
+                res.status(HttpStatusCode.BAD_REQUEST).json({Error: "Not enough money left"});
                 break
             }
             const curr_points = transactions[0]["points"]
@@ -59,7 +64,7 @@ module.exports = function(server, transactions){
             transactions.shift()
         }
         
-        res.status(200).json(paid);
+        res.status(HttpStatusCode.OK).json(paid);
     });
 
 }
