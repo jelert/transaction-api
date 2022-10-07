@@ -48,7 +48,7 @@ console.log(
 const options = {
     transact: {
         method: transaction,
-        required: ["payer", "points", "timestamp"]
+        required: ["payer", "points", "timestamp (ISO Format YYYY-MM_DDTHH:mm:ss.sssZ)"]
     },
     points: {
         method: points,
